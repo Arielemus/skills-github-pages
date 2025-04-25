@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Economía | Evolución y Fundamentos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .sidebar.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-blue-900 text-white p-4 z-50">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-xl font-bold">Menú</h2>
+            <button onclick="toggleSidebar()" class="text-white">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="space-y-4">
+                <li><a href="#inicio" class="hover:text-blue-200">Inicio</a></li>
+                <li><a href="#evolucion" class="hover:text-blue-200">Evolución Económica</a></li>
+                <li><a href="#factores" class="hover:text-blue-200">Factores de Producción</a></li>
+                <li><a href="#tipos" class="hover:text-blue-200">Tipos de Economía</a></li>
+                <li><a href="#recursos" class="hover:text-blue-200">Recursos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative">
+        <!-- Header -->
+        <header class="bg-blue-900 text-white py-4 px-6 fixed w-full z-40">
+            <div class="container mx-auto flex justify-between items-center">
+                <button onclick="toggleSidebar()" class="text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#evolucion" class="nav-link">Evolución</a>
+                    <a href="#factores" class="nav-link">Factores</a>
+                    <a href="#tipos" class="nav-link">Tipos</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="pt-20">
+            <!-- Hero Section -->
+            <section id="inicio" class="bg-gradient-to-r from-blue-800 to-blue-600 text-white py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-5xl font-bold mb-4">Fundamentos de Economía</h1>
+                    <p class="text-xl mb-8">Explora la evolución y los principios fundamentales de la economía</p>
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="scrollToSection('evolucion')" class="bg-white text-blue-800 px-8 py-3 rounded-full font-bold hover:bg-blue-100 transition duration-300">
+                            Comenzar
+                        </button>
+                        <button onclick="scrollToSection('recursos')" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-blue-800 transition duration-300">
+                            Recursos
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Evolución Económica -->
+            <section id="evolucion" class="py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-12 text-center">Evolución Económica</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="timeline-item bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3">Sociedad Tribal</h3>
+                            <p>Economía basada en la subsistencia y el intercambio directo</p>
+                        </div>
+                        <div class="timeline-item bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3">Feudalismo</h3>
+                            <p>Sistema económico basado en la tierra y las relaciones de vasallaje</p>
+                        </div>
+                        <div class="timeline-item bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3">Mercantilismo</h3>
+                            <p>Enfoque en el comercio internacional y la acumulación de metales preciosos</p>
+                        </div>
+                        <div class="timeline-item bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3">Capitalismo</h3>
+                            <p>Sistema basado en la propiedad privada y el libre mercado</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Factores de Producción -->
+            <section id="factores" class="py-16 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-12 text-center">Factores de Producción</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-3">Trabajo</h3>
+                            <p>Esfuerzo físico y mental aplicado a la producción de bienes y servicios</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <i class="fas fa-building text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-3">Capital</h3>
+                            <p>Bienes y recursos financieros utilizados en la producción</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <i class="fas fa-tree text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-3">Tierra</h3>
+                            <p>Recursos naturales y espacio físico para la producción</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tipos de Economía -->
+            <section id="tipos" class="py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-12 text-center">Tipos de Economía</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3">Microeconomía</h3>
+                            <p>Estudio de las decisiones económicas individuales y empresariales</p>
+                            <ul class="list-disc pl-6 mt-4">
+                                <li>Comportamiento del consumidor</li>
+                                <li>Teoría de la empresa</li>
+                                <li>Mercados específicos</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-3">Macroeconomía</h3>
+                            <p>Análisis de la economía en su conjunto</p>
+                            <ul class="list-disc pl-6 mt-4">
+                                <li>Política monetaria</li>
+                                <li>Crecimiento económico</li>
+                                <li>Comercio internacional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recursos -->
+            <section id="recursos" class="py-16 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-12 text-center">Recursos de Aprendizaje</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+                            <h3 class="text-xl font-bold mb-3">Documentos</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="text-blue-600 hover:text-blue-800">Guía de Estudio</a></li>
+                                <li><a href="#" class="text-blue-600 hover:text-blue-800">Ejercicios Prácticos</a></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+                            <h3 class="text-xl font-bold mb-3">Videos</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="text-blue-600 hover:text-blue-800">Introducción a la Economía</a></li>
+                                <li><a href="#" class="text-blue-600 hover:text-blue-800">Factores de Producción</a></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+                            <h3 class="text-xl font-bold mb-3">Enlaces</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="text-blue-600 hover:text-blue-800">Biblioteca Digital</a></li>
+                                <li><a href="#" class="text-blue-600 hover:text-blue-800">Recursos Adicionales</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-blue-900 text-white py-8">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Contacto</h3>
+                        <p>Email: info@economia.edu</p>
+                        <p>Tel: (123) 456-7890</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#inicio" class="hover:text-blue-200">Inicio</a></li>
+                            <li><a href="#evolucion" class="hover:text-blue-200">Evolución</a></li>
+                            <li><a href="#factores" class="hover:text-blue-200">Factores</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Redes Sociales</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="hover:text-blue-200"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="hover:text-blue-200"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-blue-200"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <p>&copy; 2025 Portal de Economía. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Cerrar sidebar al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarButton = document.querySelector('.fa-bars').parentElement;
+            
+            if (!sidebar.contains(event.target) && event.target !== sidebarButton) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Animación de aparición al scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.timeline-item');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if(position.top < window.innerHeight) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
